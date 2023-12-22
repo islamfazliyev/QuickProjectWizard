@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/Logo.ico</file>
+    <file>images/diamond.png</file>
+    <file>images/html.png</file>
+    <file>images/python.png</file>
+  </qresource>
+</RCC>
