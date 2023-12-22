@@ -1,4 +1,4 @@
-from uiV3 import Ui_MainWindow
+from uiV4 import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -9,22 +9,22 @@ webList = ["HTML, CSS, JS"]
 class Changer():
     def PythonChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.comboBox_2.clear()
-        self.comboBox_2.addItems(pyList)
+        self.libaryChanger.clear()
+        self.libaryChanger.addItems(pyList)
 
     def RubyChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.comboBox_2.clear()
-        self.comboBox_2.addItems(rbList)
+        self.libaryChanger.clear()
+        self.libaryChanger.addItems(rbList)
 
     def CsharpChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.comboBox_2.clear()
-        self.comboBox_2.addItems(csharpList)
+        self.libaryChanger.clear()
+        self.libaryChanger.addItems(csharpList)
 
         
     def WebChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.comboBox_2.clear()
-        self.comboBox_2.addItems(webList)
+        self.libaryChanger.clear()
+        self.libaryChanger.addItems(webList)
         

@@ -1,24 +1,26 @@
 import os
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QComboBox
-from uiV3 import Ui_MainWindow
+from uiV4 import Ui_MainWindow
 from tinydb import TinyDB, Query
 import subprocess
-from libaryChanger import Changer
+from LibaryChanger import Changer
 
 class MyMainWindow(QMainWindow, Ui_MainWindow, Changer):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.pushButton_4.clicked.connect(self.createProject)
+        self.createProject.clicked.connect(self.onCreateProjectClicked)
+        self.deleteItem.clicked.connect(self.DeleteItem)
         self.db = TinyDB("data.json")
         self.loadList()
-        self.comboBox.currentIndexChanged.connect(self.updateLibarySettings)
-        self.listWidget.itemClicked.connect(self.listClicked) 
+        self.langSelect.currentIndexChanged.connect(self.updateLibarySettings)
+        self.listWidget.itemClicked.connect(self.listClicked)
+        self.listWidget.itemClicked
         
     
     def updateLibarySettings(self):
-        selectedType = self.comboBox.currentText()
+        selectedType = self.langSelect.currentText()
         if selectedType == "Python":
             self.PythonChanger()
         if selectedType == "Ruby":
@@ -28,16 +30,16 @@ class MyMainWindow(QMainWindow, Ui_MainWindow, Changer):
         if selectedType == "Web":
             self.WebChanger()
     
-    def createProject(self):
+    def onCreateProjectClicked(self):
         projectName = self.projectNamer.text()
-        Directory = self.projectNamer_2.text()
+        Directory = self.directoryAssign.text()
 
         if not projectName:
             QMessageBox.critical(self, "Error", "Please Enter Project Name")
             return
 
-        selectedType = self.comboBox.currentText()
-        selectedLibary = self.comboBox_2.currentText()
+        selectedType = self.langSelect.currentText()
+        selectedLibary = self.libarySelect.currentText()
         if selectedType == "Python":
             if selectedLibary == "Flask":
                 self.Python(projectName, pyPath=Directory, Current="Flask")
@@ -230,6 +232,26 @@ window.show
             projectDirectory = projectInfo["Directory"]
             vscodeCommand = "code {}".format(projectDirectory)
             subprocess.run(vscodeCommand, shell=True)
+
+    def DeleteItem(self):
+        current_item = self.listWidget.currentItem()
+        if current_item:
+            name = current_item.text()
+            material = self.db.get(Query().Name == name)
+            if material:
+                itemDir = current_item.text()
+                self.db.get(Query().Directory == itemDir)
+                os.rmdir(f"{itemDir}")
+                self.db.remove(doc_ids=[itemDir.doc_ids])
+            else:
+                QMessageBox.warning(self, "Item", f"{name} not found")
+        else:
+            QMessageBox.warning(self, "Item not selected")
+        self.listWidget.clear()
+        inList = self.db.all()
+        for List in inList:
+            self.listWidget.addItem(List["Name"])
+
 
 
 if __name__ == "__main__":
