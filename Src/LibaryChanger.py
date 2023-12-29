@@ -9,22 +9,22 @@ webList = ["HTML, CSS, JS"]
 class Changer():
     def PythonChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.libaryChanger.clear()
-        self.libaryChanger.addItems(pyList)
+        self.libarySelect.clear()
+        self.libarySelect.addItems(pyList)
 
     def RubyChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.libaryChanger.clear()
-        self.libaryChanger.addItems(rbList)
+        self.libarySelect.clear()
+        self.libarySelect.addItems(rbList)
 
     def CsharpChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.libaryChanger.clear()
-        self.libaryChanger.addItems(csharpList)
+        self.libarySelect.clear()
+        self.libarySelect.addItems(csharpList)
 
         
     def WebChanger(self):
         _translate = QtCore.QCoreApplication.translate
-        self.libaryChanger.clear()
-        self.libaryChanger.addItems(webList)
+        self.libarySelect.clear()
+        self.libarySelect.addItems(webList)
         
