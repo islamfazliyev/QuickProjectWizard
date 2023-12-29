@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+    background-color: grey;
+    width: 1440px;
+    height: 60px;
+}
+
+#navBar h3{
+    text-align: center;
+    margin-left: 300px;
+    color: white;
+    width: 200px;
+}
+
+#navBarLink ol{
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+#navBarLink ol li a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#navBarLink ol li a:hover{
+    transition: .3s;
+    text-decoration: none;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+}
+
+#border{
+    background-color: black;
+}
+
+#borderImg{
+    background-color: black;
+    margin-left: 300px;
+    height: 500px;
+}
