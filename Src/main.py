@@ -1,7 +1,7 @@
 import os
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QLineEdit, QListWidgetItem, QPushButton, QMessageBox, QComboBox
-from uiV4 import Ui_MainWindow
+from PyQt5.QtWidgets import QApplication, QFileDialog, QDialog, QMainWindow, QWidget, QVBoxLayout, QLabel, QLineEdit, QListWidgetItem, QPushButton, QMessageBox, QComboBox
+from uiV5 import Ui_MainWindow
 from tinydb import TinyDB, Query
 import subprocess
 import shutil
@@ -19,6 +19,7 @@ class MyMainWindow(QMainWindow, Ui_MainWindow, Changer):
         self.listWidget.itemClicked.connect(self.listClicked)
         self.listWidget.itemClicked
         self.searchBar.textChanged.connect(self.search)
+        self.selectFolder.clicked.connect(self.selectWindow)
         
     
     def updateLibarySettings(self):
@@ -66,6 +67,11 @@ class MyMainWindow(QMainWindow, Ui_MainWindow, Changer):
             self.Web(projectName, webPath=Directory)
         self.loadList()
 
+    def selectWindow(self):
+        fname = str(QFileDialog.getExistingDirectoryUrl(self, "Select Folder"))
+        unwantedTexts = "'"
+        fname.translate("", "", unwantedTexts)
+        self.directoryAssign.setText(fname[27:])
         
     def Python(self, path, pyPath, Current):
         directory = os.path.join(f"{pyPath}", path)

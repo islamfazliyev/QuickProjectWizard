@@ -277,7 +277,7 @@ font: 16pt &quot;MS Shell Dlg 2&quot;; background-color: rgb(255, 255, 255);</st
            <rect>
             <x>70</x>
             <y>390</y>
-            <width>361</width>
+            <width>241</width>
             <height>61</height>
            </rect>
           </property>
@@ -290,6 +290,27 @@ font: 16pt &quot;MS Shell Dlg 2&quot;; background-color: rgb(255, 255, 255);</st
           </property>
           <property name="placeholderText">
            <string>Enter Project Directory</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="selectFolder">
+          <property name="geometry">
+           <rect>
+            <x>320</x>
+            <y>390</y>
+            <width>111</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgba(255,255,255, 1);</string>
+          </property>
+          <property name="text">
+           <string>Select Folder</string>
           </property>
          </widget>
         </widget>
