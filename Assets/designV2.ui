@@ -229,7 +229,32 @@ font: 16pt &quot;MS Shell Dlg 2&quot;; background-color: rgb(255, 255, 255);</st
           </item>
           <item>
            <property name="text">
+            <string>C</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>C++</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
             <string>Ruby</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rust</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Golang</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lua</string>
            </property>
           </item>
           <item>
